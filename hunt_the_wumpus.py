@@ -6,7 +6,7 @@ wumpus_location = choice(cave_numbers)
 wumpus_friend_location = choice(cave_numbers)
 player_location = choice(cave_numbers)
 while (player_location == wumpus_location or
-       player_location == wumpus_friend_location)):
+       player_location == wumpus_friend_location):
     player_location = choice(cave_numbers)
 
 
