@@ -1,10 +1,12 @@
 #RUN THE WUMPUS
 from random import choice
 
-cave_numbers= range(1,21)
+cave_numbers= range(1,25)
 wumpus_location = choice(cave_numbers)
+wumpus_friend_location = choice(cave_numbers)
 player_location = choice(cave_numbers)
-while player_location == wumpus_location :
+while (player_location == wumpus_location or
+       player_location == wumpus_friend_location)):
     player_location = choice(cave_numbers)
 
 
@@ -19,6 +21,9 @@ while True :
         player_location == wumpus_location +1) :
         print " I smell a Wumpus"
     print "Which cave next?"
+    if (player_location == wumpus_friend_location -1 or
+        player_location == wumpus_friend_location +1) :
+        print "I smell an even stinkier wumpus!"
     player_input = raw_input('>')
     if (not player_input.isdigit() or
         int(player_input) not in cave_numbers) :
@@ -27,5 +32,7 @@ while True :
     else :
         player_location = int(player_input)
         if player_location == wumpus_location :
-            print "Aargh! You got eaten by a wumpus!"
+            print "Ohh! You got hugged by a wumpus!"
             break
+        if player_location == wumpus_friend_location :
+            print "Ohh! You got hugged by the wumpus' friend!"
